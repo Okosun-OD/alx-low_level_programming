@@ -13,22 +13,25 @@ int main(void)
 	{
 		for (j = i; j < 58; j++)
 		{
-			if (i == j || j == k || i == k)
+			for (k = j; k < 58; k++)
 			{
-				continue;
-			}
-			putchar(i);
-			putchar(j);
-			putchar(k);
+				if (i == j || j == k || i == k)
+				{
+					continue;
+				}
+				putchar(i);
+				putchar(j);
+				putchar(k);
 
-			if (i == 55 && j == 56 && k == 57)
-			{
-				break;
-			}
-			else
-			{
-				putchar(',');
-				putchar(' ');
+				if (i == 55 && j == 56 && k == 57)
+				{
+					break;
+				}
+				else
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
