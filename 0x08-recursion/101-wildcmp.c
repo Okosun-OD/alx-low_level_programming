@@ -35,7 +35,7 @@ int checkLast(char *s, int i)
   * @s2: string
   * @a: int
   * @b: int
-  * @wildUsed: i
+  * @wildUsed: int
   * Return: Always 0
   */
 int checker(char *s1, char *s2, int a, int b, int wildUsed)
