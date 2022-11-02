@@ -14,4 +14,6 @@ int is_palindrome(char *s);
 int revstring(char *s, int lon);
 int rec_longstring(char *s);
 int wildcmp(char *s1, char *s2);
+int checker(char *s1, char *s2, int a, int b, int wildUsed);
+int checkLast(char *s, int i);
 #endif
