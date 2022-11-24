@@ -1,5 +1,5 @@
 section     .text
-    global      main
+	global      main
 
 main:
 	mov     edx,len
