@@ -1,51 +1,49 @@
 #include "main.h"
 /**
-  * _atoi - Convert string to an integer.
-  * @s: Pointer to a character string.
-  *
-  * Return: void.
-  */
+ * _atoi -  convert a string to an integer.
+ * @s: string
+ *
+ * Return: if no number in the string 0 otherwise the number.
+ */
 int _atoi(char *s)
 {
-	int i = 0;
-	int j = 0;
-	int k = 0;
-	int sign = 1;
-	int stop_sign = 0;
-	int stop_num = 0;
-	int ent_num = 0;
-	char number_in_array[100];
+	unsigned int num = 0;
+	int len = 0, digit, found = 0;
+	char sign, c1, c2;
 
-	while (*(s + i) != '\0')
+	while (*(s + len) != '\0')
 	{
-		if (*(s + i) == '+' && stop_sign == 0)
-			sign *= 1;
-		else if (*(s + i) == '-' && stop_sign == 0)
-			sign *= -1;
-		if (*(s + i) >= '0' && *(s + i) <= '9' && stop_num == 0)
+		c1 = *(s + len);
+		c2 = *(s + len + 1);
+		if (c1 == ' ')
 		{
-			number_in_array[j] = (*(s + i) - 48);
-			stop_sign = 1;
-			ent_num = 1;
-			j++;
-		}
-		else
+			++len;
+			continue; }
+		if (c1 == '-')
 		{
-			if (ent_num == 1)
-				stop_num = 1;
-			else
+			if ((c2 >= '0' && c2 <= '9') || c2 == ' ' || c2 == '-' || c2 == '+')
 			{
-				number_in_array[j] = '0';
-				number_in_array[1] = '\0';
-			}	
+				if (sign == '-')
+					sign = ' ';
+				else
+					sign = '-';
+			}}
+		if (c1 >= '0' && c1 <= '9')
+		{
+			found = 1;
+			digit = 0;
+			while (digit <= 9)
+			{
+				if (*(s + len) == digit + '0')
+					num = (num * 10) + digit;
+				++digit;
+			}
+			if (!(c2 >= '0' &&  c2 <= '9'))
+				break;
+			}
+			++len;
 		}
-		i++;
-	}
-	printf("sign: %d", sign);
-	while (number_in_array[k] != '\0')
-	{
-		putchar(number_in_array[k]);
-		k++;
-	}
-	return (0);
+		if (found == 1 && sign == '-')
+			num = -1 * num;
+	return (num);
 }
